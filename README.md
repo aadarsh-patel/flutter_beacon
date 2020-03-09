@@ -1,6 +1,6 @@
-# flutter_beacon
+# Flutter Beacon
 
-A new Flutter project.
+GSoC'20 take-home qualification task for CCExtractor.org
 
 ## Getting Started
 
