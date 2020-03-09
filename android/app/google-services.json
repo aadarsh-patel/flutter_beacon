@@ -1,0 +1,40 @@
+{
+  "project_info": {
+    "project_number": "444677676176",
+    "firebase_url": "https://flutter-beacon-7cbb2.firebaseio.com",
+    "project_id": "flutter-beacon-7cbb2",
+    "storage_bucket": "flutter-beacon-7cbb2.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:444677676176:android:9f516f6bac36be73da8c15",
+        "android_client_info": {
+          "package_name": "com.example.flutterbeacon"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "444677676176-i2u5d4n6do60na5c5gui77m5p653l5s5.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCIIhmyKEl7sA8PkfCPdzsqPq1tZEE4eSw"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "444677676176-i2u5d4n6do60na5c5gui77m5p653l5s5.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
