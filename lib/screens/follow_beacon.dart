@@ -21,10 +21,11 @@ class _FollowBeaconState extends State<FollowBeacon> {
             padding: const EdgeInsets.all(8.0),
             child: Container(
               decoration: BoxDecoration(
-                  border: Border.all(
-                    color: Colors.lightBlueAccent,
-                  ),
-                  borderRadius: BorderRadius.all(Radius.circular(20))),
+                border: Border.all(
+                  color: Colors.lightBlueAccent,
+                ),
+                borderRadius: BorderRadius.all(Radius.circular(20)),
+              ),
               child: ListTile(
                 leading: Icon(
                   Icons.account_circle,
@@ -40,7 +41,10 @@ class _FollowBeaconState extends State<FollowBeacon> {
                       color: Colors.black,
                     ),
                     onPressed: () {
-                      showDialog(context: context, builder: (context) => Validate(user.data['Name'], user.data['Key'], user.documentID));
+                      showDialog(
+                          context: context,
+                          builder: (context) => Validate(user.data['Name'],
+                              user.data['Key'], user.documentID));
                     }),
               ),
             ),
@@ -53,7 +57,9 @@ class _FollowBeaconState extends State<FollowBeacon> {
         child: Text("No users found."),
       );
     } else {
-      return CircularProgressIndicator();
+      return Center(
+          child: Container(
+              width: 100, height: 100, child: CircularProgressIndicator()));
     }
   }
 

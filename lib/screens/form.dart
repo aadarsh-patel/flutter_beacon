@@ -24,6 +24,13 @@ class _MyFormState extends State<MyForm> {
         title: Text('Flutter Beacon'),
       ),
       body: Container(
+        decoration: BoxDecoration(
+          gradient: LinearGradient(
+            colors: [Colors.blue.withOpacity(0.4), Colors.white, Colors.blue.withOpacity(0.2)],
+            begin: Alignment.topLeft,
+            end: Alignment.bottomRight,
+          ),
+        ),
         padding: EdgeInsets.fromLTRB(30, 0, 30, 0),
         width: 420,
         child: Form(

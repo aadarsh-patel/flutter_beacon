@@ -11,7 +11,6 @@ class Validate extends StatefulWidget {
   _ValidateState createState() => _ValidateState();
 }
 
-
 class _ValidateState extends State<Validate> {
   String output = '';
   final _passKeyController = TextEditingController();
@@ -20,16 +19,19 @@ class _ValidateState extends State<Validate> {
   Widget build(BuildContext context) {
     return Center(
         child: Card(
+      shape: RoundedRectangleBorder(borderRadius: BorderRadius.circular(40)),
       child: Container(
-
-        width: MediaQuery.of(context).size.width*0.75,
-        height: MediaQuery.of(context).size.width*0.75,
+        width: MediaQuery.of(context).size.width * 0.75,
+        height: MediaQuery.of(context).size.width * 0.75,
         child: Padding(
           padding: const EdgeInsets.all(28.0),
           child: Column(
             mainAxisAlignment: MainAxisAlignment.spaceBetween,
             children: <Widget>[
-              Text('Enter the Pass Key for ${widget.name}\'s Beacon'),
+              Text(
+                'Enter the Pass Key\nfor ${widget.name}\'s Beacon',
+                style: TextStyle(fontSize: 18),
+              ),
               TextField(
                 controller: _passKeyController,
                 decoration: InputDecoration(
@@ -38,17 +40,23 @@ class _ValidateState extends State<Validate> {
                   border: OutlineInputBorder(),
                 ),
               ),
-              RaisedButton(child: Text('ENTER'),onPressed: (){
-                if(_passKeyController.text.toString() == widget.passKey){
-                  output = 'Pass Key Accepted';
-                  FocusScope.of(context).unfocus();
-                  Navigator.pop(context);
-                  Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => TrackUser(widget.documentId)));
-                }
-                else{
-                  output = 'Wrong Pass Key';
-                }
-              },),
+              RaisedButton(
+                child: Text('ENTER'),
+                onPressed: () {
+                  if (_passKeyController.text.toString() == widget.passKey) {
+                    output = 'Pass Key Accepted';
+                    FocusScope.of(context).unfocus();
+                    Navigator.pop(context);
+                    Navigator.push(
+                        context,
+                        MaterialPageRoute(
+                            builder: (BuildContext context) =>
+                                TrackUser(widget.documentId)));
+                  } else {
+                    output = 'Wrong Pass Key';
+                  }
+                },
+              ),
               Text(output),
             ],
           ),
