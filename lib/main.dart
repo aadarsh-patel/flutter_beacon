@@ -1,9 +1,8 @@
 import 'package:flutter/material.dart';
 
 import 'package:flutter_beacon/screens/home_page.dart';
-import 'package:flutter_beacon/screens/host_beacon.dart';
 import 'package:flutter_beacon/screens/follow_beacon.dart';
-import 'package:flutter_beacon/screens/search_key.dart';
+import 'package:flutter_beacon/screens/form.dart';
 
 void main() {
   runApp(MyApp());
@@ -19,9 +18,8 @@ class MyApp extends StatelessWidget {
       initialRoute: '/',
       routes: {
         '/': (context) => HomePage(),
-        '/host': (context) => HostBeacon(),
         '/follow': (context) => FollowBeacon(),
-        '/search': (context) => SearchKey(),
+        '/form': (context) => MyForm(),
       },
     );
   }

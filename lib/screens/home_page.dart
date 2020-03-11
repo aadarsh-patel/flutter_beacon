@@ -8,12 +8,13 @@ class HomePage extends StatelessWidget {
         title: Text('Flutter Beacon'),
       ),
       body: Column(
-        mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+        mainAxisAlignment: MainAxisAlignment.center,
         children: <Widget>[
-          Row(
-            mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-            children: <Widget>[
-              Card(
+          Center(
+            child: Container(
+              width: MediaQuery.of(context).size.width*0.4,
+              height: MediaQuery.of(context).size.width*0.4,
+              child: Card(
                 color: Colors.lightBlueAccent,
                 elevation: 10,
                 child: RaisedButton(
@@ -22,10 +23,17 @@ class HomePage extends StatelessWidget {
                     'Host a\nbeacon',
                     style: TextStyle(fontSize: 30),
                   ),
-                  onPressed: () => Navigator.pushNamed(context, '/host'),
+                  onPressed: () => Navigator.pushNamed(context, '/form'),
                 ),
               ),
-              Card(
+            ),
+          ),
+          SizedBox(height: 50),
+          Center(
+            child: Container(
+              width: MediaQuery.of(context).size.width*0.4,
+              height: MediaQuery.of(context).size.width*0.4,
+              child: Card(
                 color: Colors.lightBlueAccent,
                 elevation: 10,
                 child: RaisedButton(
@@ -37,12 +45,7 @@ class HomePage extends StatelessWidget {
                   onPressed: () => Navigator.pushNamed(context, '/follow'),
                 ),
               ),
-            ],
-          ),
-          RaisedButton(
-            color: Colors.lightBlueAccent,
-            child: Text('Lookup for Pass Key in repository', style: TextStyle(fontSize: 18),),
-            onPressed: () => Navigator.pushNamed(context, '/search'),
+            ),
           ),
         ],
       ),
