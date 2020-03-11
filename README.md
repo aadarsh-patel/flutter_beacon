@@ -1,16 +1,5 @@
-# flutter_beacon
+# Flutter Beacon
 
-A new Flutter project.
+GSoC'20 take-home qualification task for CCExtractor.org
 
-## Getting Started
-
-This project is a starting point for a Flutter application.
-
-A few resources to get you started if this is your first Flutter project:
-
-- [Lab: Write your first Flutter app](https://flutter.dev/docs/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://flutter.dev/docs/cookbook)
-
-For help getting started with Flutter, view our
-[online documentation](https://flutter.dev/docs), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+Task: Write a Flutter app that is able to share your location with anyone who has a specific passkey. Your app then will have two modes of operation: Someone is sharing their location (that means “carrying the beacon”) and everybody else can see that location (they are “following the beacon”). 
