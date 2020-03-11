@@ -10,7 +10,7 @@ import 'package:latlong/latlong.dart';
 class HostBeacon extends StatefulWidget {
   final String userName;
   final String passKey;
-  HostBeacon(this.userName,this.passKey);
+  HostBeacon(this.userName, this.passKey);
 
   @override
   _HostBeaconState createState() => _HostBeaconState();
@@ -18,17 +18,21 @@ class HostBeacon extends StatefulWidget {
 
 class _HostBeaconState extends State<HostBeacon> {
   bool initialized = false;
+  final collectionRef = Firestore.instance.collection('locations').reference();
   DocumentReference docRef;
 
   final Location location = new Location();
 
-
   _intializeLocation() async {
-    docRef = await Firestore.instance.collection('locations').add({
-      'Name': widget.userName,
-      'Key': widget.passKey,
-    });
-    initialized = true;
+    if (!initialized) {
+      docRef = await collectionRef.add({
+        'Name': widget.userName,
+        'Key': widget.passKey,
+        'Lati': 'Loading..',
+        'Long': 'Loading..',
+      });
+      initialized = true;
+    }
   }
 
   LocationData _location;
@@ -58,15 +62,17 @@ class _HostBeaconState extends State<HostBeacon> {
     if (initialized == false) {
       _intializeLocation();
     } else {
-      docRef.updateData({
-        'Lati': _location.latitude.toString(),
-        'Long': _location.longitude.toString(),
+      collectionRef.document(docRef.documentID).updateData({
+        'Name': widget.userName,
+        'Key': widget.passKey,
+        'Lati': _location.latitude,
+        'Long': _location.longitude,
       });
     }
   }
 
   bool _checkProgress() {
-    if (_location == null || docRef == null) {
+    if (_location == null || initialized == false) {
       return false;
     } else
       return true;
@@ -131,7 +137,7 @@ class _HostBeaconState extends State<HostBeacon> {
                         height: 30,
                       ),
                       Text(
-                        'Your Pass key is\t${widget.passKey}\n\nShare this Pass Key with your friends so that they can follow your beacon and know about your live location.',
+                        'Hello! ${widget.userName},\nYour Pass key is\t${widget.passKey}\n\nShare this Pass Key with your friends so that they can follow your beacon and know about your live location.',
                         style: TextStyle(fontSize: 16),
                       ),
                       RaisedButton(
