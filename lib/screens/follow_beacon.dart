@@ -40,7 +40,7 @@ class _FollowBeaconState extends State<FollowBeacon> {
                       color: Colors.black,
                     ),
                     onPressed: () {
-                      showDialog(context: context, builder: (context) => Validate(user.data['Name'],user.data['Key'], user.documentID));
+                      showDialog(context: context, builder: (context) => Validate(user.data['Name'], user.data['Key'], user.documentID));
                     }),
               ),
             ),

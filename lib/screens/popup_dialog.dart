@@ -39,8 +39,14 @@ class _ValidateState extends State<Validate> {
                 ),
               ),
               RaisedButton(child: Text('ENTER'),onPressed: (){
-                if(_passKeyController.text == widget.key.toString()){
+                if(_passKeyController.text.toString() == widget.passKey){
+                  output = 'Pass Key Accepted';
+                  FocusScope.of(context).unfocus();
+                  Navigator.pop(context);
                   Navigator.push(context, MaterialPageRoute(builder: (BuildContext context) => TrackUser(widget.documentId)));
+                }
+                else{
+                  output = 'Wrong Pass Key';
                 }
               },),
               Text(output),
