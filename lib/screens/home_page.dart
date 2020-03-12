@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:flutter_beacon/screens/common.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -9,11 +10,7 @@ class HomePage extends StatelessWidget {
       ),
       body: Container(
         decoration: BoxDecoration(
-          gradient: LinearGradient(
-            colors: [Colors.blue.withOpacity(0.4), Colors.white, Colors.blue.withOpacity(0.2)],
-            begin: Alignment.topLeft,
-            end: Alignment.bottomRight,
-          ),
+          gradient: myGradient,
         ),
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,

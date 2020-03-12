@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
+import 'package:flutter_beacon/screens/common.dart';
 import 'package:flutter_beacon/screens/popup_dialog.dart';
 
 class FollowBeacon extends StatefulWidget {
@@ -22,7 +23,7 @@ class _FollowBeaconState extends State<FollowBeacon> {
             child: Container(
               decoration: BoxDecoration(
                 border: Border.all(
-                  color: Colors.lightBlueAccent,
+                  color: Colors.black,
                 ),
                 borderRadius: BorderRadius.all(Radius.circular(20)),
               ),
@@ -35,17 +36,23 @@ class _FollowBeaconState extends State<FollowBeacon> {
                   user.data['Name'],
                   style: TextStyle(fontSize: 20, color: Colors.black),
                 ),
-                trailing: IconButton(
-                    icon: Icon(
-                      Icons.arrow_forward,
-                      color: Colors.black,
-                    ),
-                    onPressed: () {
-                      showDialog(
-                          context: context,
-                          builder: (context) => Validate(user.data['Name'],
-                              user.data['Key'], user.documentID));
-                    }),
+                trailing: Container(
+                  decoration: BoxDecoration(
+                    color: Colors.white,
+                    borderRadius: BorderRadius.all(Radius.circular(20)),
+                  ),
+                  child: IconButton(
+                      icon: Icon(
+                        Icons.arrow_forward,
+                        color: Colors.blue,
+                      ),
+                      onPressed: () {
+                        showDialog(
+                            context: context,
+                            builder: (context) => Validate(user.data['Name'],
+                                user.data['Key'], user.documentID));
+                      }),
+                ),
               ),
             ),
           );
@@ -69,9 +76,12 @@ class _FollowBeaconState extends State<FollowBeacon> {
       appBar: AppBar(
         title: Text('Flutter Beacon'),
       ),
-      body: StreamBuilder(
-        stream: Firestore.instance.collection('locations').snapshots(),
-        builder: buildUserList,
+      body: Container(
+        decoration: BoxDecoration(gradient: myGradient),
+        child: StreamBuilder(
+          stream: Firestore.instance.collection('users').snapshots(),
+          builder: buildUserList,
+        ),
       ),
     );
   }

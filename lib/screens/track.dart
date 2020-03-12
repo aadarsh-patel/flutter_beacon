@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:latlong/latlong.dart';
+import 'package:flutter_beacon/screens/common.dart';
 
 class TrackUser extends StatefulWidget {
   final String docId;
@@ -20,18 +21,27 @@ class _TrackUserState extends State<TrackUser> {
       ),
       body: StreamBuilder(
           stream: Firestore.instance
-              .collection('locations')
+              .collection('users')
               .document(widget.docId)
               .snapshots(),
           builder: (context, snapshot) {
             return Container(
+              decoration: BoxDecoration(
+          gradient: myGradient,
+        ),
               padding: EdgeInsets.all(50),
               child: Center(
                 child: Column(
                   children: <Widget>[
                     Container(
-                      height: MediaQuery.of(context).size.width * 0.8,
-                      width: MediaQuery.of(context).size.width * 0.8,
+                      decoration: BoxDecoration(
+                      border: Border.all(
+                        color: Colors.black,
+                        width: 5,
+                      ),
+                    ),
+                    height: MediaQuery.of(context).size.width * 0.8,
+                    width: MediaQuery.of(context).size.width * 0.8,
                       child: new FlutterMap(
                         options: new MapOptions(
                           minZoom: 15.0,
