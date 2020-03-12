@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 
 import 'package:cloud_firestore/cloud_firestore.dart';
-import 'package:flutter_beacon/screens/common.dart';
+import 'package:flutter_beacon/common.dart';
 import 'package:flutter_beacon/screens/popup_dialog.dart';
 
 class FollowBeacon extends StatefulWidget {
@@ -38,13 +38,13 @@ class _FollowBeaconState extends State<FollowBeacon> {
                 ),
                 trailing: Container(
                   decoration: BoxDecoration(
-                    color: Colors.white,
+                    color: myBoxColor,
                     borderRadius: BorderRadius.all(Radius.circular(20)),
                   ),
                   child: IconButton(
                       icon: Icon(
                         Icons.arrow_forward,
-                        color: Colors.blue,
+                        color: myTextColor,
                       ),
                       onPressed: () {
                         showDialog(

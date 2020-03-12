@@ -6,7 +6,7 @@ import 'package:flutter_map/flutter_map.dart';
 import 'package:location/location.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:latlong/latlong.dart';
-import 'package:flutter_beacon/screens/common.dart';
+import 'package:flutter_beacon/common.dart';
 
 class HostBeacon extends StatefulWidget {
   final String userName;
@@ -66,6 +66,8 @@ class _HostBeaconState extends State<HostBeacon> {
   _stopListen() async {
     _locationSubscription.cancel();
   }
+
+  
 
   @override
   Widget build(BuildContext context) {
@@ -147,16 +149,13 @@ class _HostBeaconState extends State<HostBeacon> {
                   style: TextStyle(fontSize: 16),
                 ),
                 RaisedButton(
-                  color: Colors.white,
+                  color: myBoxColor,
                   child: Text(
                     'Tap here to copy Pass Key to clipboard',
-                    style: TextStyle(color: Colors.blue),
+                    style: TextStyle(color: myTextColor),
                   ),
                   onPressed: () {
                     Clipboard.setData(new ClipboardData(text: widget.passKey));
-                    Scaffold.of(context).showSnackBar(SnackBar(
-                      content: Text('Pass Key copied!'),
-                    ));
                   },
                 ),
               ],

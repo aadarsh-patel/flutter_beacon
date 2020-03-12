@@ -1,7 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_beacon/screens/host_beacon.dart';
 import 'package:random_string/random_string.dart';
-import 'package:flutter_beacon/screens/common.dart';
+import 'package:flutter_beacon/common.dart';
 
 class MyForm extends StatefulWidget {
   @override
@@ -41,7 +41,7 @@ class _MyFormState extends State<MyForm> {
                   child: Column(
                     children: <Widget>[
                       TextFormField(
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: myTextColor),
                         decoration: InputDecoration(
                           labelText: 'Your name',
                           labelStyle: TextStyle(),
@@ -57,7 +57,7 @@ class _MyFormState extends State<MyForm> {
                       ),
                       SizedBox(height: 6.0),
                       TextFormField(
-                        style: TextStyle(color: Colors.black),
+                        style: TextStyle(color: myTextColor),
                         decoration: InputDecoration(
                           labelText: 'Your Pass Key',
                           border: OutlineInputBorder(),
@@ -83,7 +83,7 @@ class _MyFormState extends State<MyForm> {
               ),
               SizedBox(height: 20),
               RaisedButton(
-                color: Colors.lightBlueAccent,
+                color: myBoxColor,
                 shape: RoundedRectangleBorder(
                   borderRadius: new BorderRadius.circular(5.0),
                 ),
@@ -105,7 +105,7 @@ class _MyFormState extends State<MyForm> {
                 child: Text(
                   'Submit',
                   style: TextStyle(
-                    color: Colors.black,
+                    color: myTextColor,
                     fontSize: 18,
                   ),
                 ),

@@ -1,5 +1,5 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_beacon/screens/common.dart';
+import 'package:flutter_beacon/common.dart';
 
 import 'package:flutter_beacon/screens/track.dart';
 
@@ -42,8 +42,8 @@ class _ValidateState extends State<Validate> {
                 ),
               ),
               RaisedButton(
-                color: Colors.lightBlue,
-                child: Text('ENTER'),
+                color: myBoxColor,
+                child: Text('ENTER',style: TextStyle(color: myTextColor),),
                 onPressed: () {
                   if (_passKeyController.text.toString() == widget.passKey) {
                     output = 'Pass Key Accepted';

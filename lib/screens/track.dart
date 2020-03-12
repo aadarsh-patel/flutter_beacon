@@ -3,7 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:flutter_map/flutter_map.dart';
 import 'package:cloud_firestore/cloud_firestore.dart';
 import 'package:latlong/latlong.dart';
-import 'package:flutter_beacon/screens/common.dart';
+import 'package:flutter_beacon/common.dart';
 
 class TrackUser extends StatefulWidget {
   final String docId;
