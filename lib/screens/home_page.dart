@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_beacon/common.dart';
+import 'package:location/location.dart';
 
 class HomePage extends StatelessWidget {
   @override
@@ -25,16 +26,19 @@ class HomePage extends StatelessWidget {
                   elevation: 10,
                   child: Container(
                     decoration: BoxDecoration(
-                      border: Border.all(width: 5,color: Colors.white),
-                      borderRadius: BorderRadius.all(Radius.circular(5))
-                    ),
+                        border: Border.all(width: 5, color: Colors.white),
+                        borderRadius: BorderRadius.all(Radius.circular(5))),
                     child: RaisedButton(
                       color: myBoxColor,
                       child: Text(
                         'Host a\nbeacon',
                         style: TextStyle(fontSize: 30, color: myTextColor),
                       ),
-                      onPressed: () => Navigator.pushNamed(context, '/form'),
+                      onPressed: () {
+                        Location().requestPermission();
+                        Location().getLocation();
+                        Navigator.pushNamed(context, '/form');
+                      },
                     ),
                   ),
                 ),
@@ -50,9 +54,8 @@ class HomePage extends StatelessWidget {
                   elevation: 10,
                   child: Container(
                     decoration: BoxDecoration(
-                      border: Border.all(width: 5,color: Colors.white),
-                      borderRadius: BorderRadius.all(Radius.circular(5))
-                    ),
+                        border: Border.all(width: 5, color: Colors.white),
+                        borderRadius: BorderRadius.all(Radius.circular(5))),
                     child: RaisedButton(
                       color: myBoxColor,
                       child: Text(
